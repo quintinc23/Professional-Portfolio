@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quintin Christopher — Senior TAM & Enterprise AI Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & ROOT ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:       #0e0e0e;
+  --ink-mid:   #3a3a3a;
+  --ink-soft:  #6b6b6b;
+  --paper:     #f7f4ef;
+  --cream:     #ede9e2;
+  --gold:      #b8964a;
+  --gold-lt:   #d4b06a;
+  --sky:       #1a3a5c;
+  --sky-lt:    #2c5282;
+  --white:     #ffffff;
+  --rule:      rgba(14,14,14,0.12);
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'DM Sans', sans-serif;
+  --ff-mono:    'DM Mono', monospace;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--ff-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ─── NOISE TEXTURE OVERLAY ────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9999; opacity: 0.35;
+}
+
+/* ─── NAV ───────────────────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.25rem 3rem;
+  background: rgba(247, 244, 239, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+  transition: all 0.3s var(--ease);
+}
+.nav-logo {
+  font-family: var(--ff-display);
+  font-size: 1.1rem; font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-links a { color: var(--ink-soft); transition: color 0.2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.4rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  transition: all 0.2s var(--ease);
+}
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* ─── HERO PLATFORM CHIPS ───────────────────────────────────────────── */
+.hero-platforms {
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.hero-platforms-label {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--ink-soft); margin-bottom: 0.75rem;
+}
+.hero-platform-chips {
+  display: flex; flex-wrap: wrap; gap: 0.45rem;
+}
+.pchip {
+  font-size: 0.75rem; font-weight: 500;
+  padding: 0.3rem 0.75rem; border-radius: 20px;
+  border: 1px solid var(--rule);
+  background: var(--white); color: var(--ink-mid);
+  letter-spacing: 0.02em;
+}
+.pchip-ai {
+  background: rgba(26,58,92,0.06);
+  border-color: rgba(26,58,92,0.25);
+  color: var(--sky);
+}
+
+/* ─── HERO ──────────────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 8rem 4rem 5rem 6rem;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 2.5rem; height: 1px; background: var(--gold);
+}
+.hero-h1 {
+  font-family: var(--ff-display);
+  font-size: clamp(3.2rem, 5vw, 5.5rem);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+.hero-h1 em {
+  font-style: italic; color: var(--sky);
+  display: block;
+}
+.hero-role {
+  font-size: 0.95rem; font-weight: 300; color: var(--ink-mid);
+  letter-spacing: 0.04em; margin-bottom: 2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+  margin-top: 0.75rem;
+}
+.hero-desc {
+  font-size: 1.0rem; line-height: 1.75; color: var(--ink-mid);
+  max-width: 480px; margin-bottom: 3rem;
+  font-weight: 300;
+}
+.hero-desc strong { font-weight: 500; color: var(--ink); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  padding: 0.85rem 2rem;
+  background: var(--ink); color: var(--paper);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 2px;
+  transition: all 0.25s var(--ease);
+}
+.btn-primary:hover { background: var(--sky); }
+.btn-outline {
+  padding: 0.85rem 2rem;
+  border: 1.5px solid var(--ink-soft);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 2px; color: var(--ink-mid);
+  transition: all 0.25s var(--ease);
+}
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+.hero-stats {
+  margin-top: 3.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: flex; gap: 3rem;
+}
+.hero-stat-num {
+  font-family: var(--ff-display);
+  font-size: 2.2rem; font-weight: 700; color: var(--ink);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-soft); margin-top: 0.3rem;
+}
+
+/* hero right — photo panel */
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-photo-wrap {
+  position: absolute; inset: 0;
+  background: var(--sky);
+}
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(26,58,92,0.3) 0%, rgba(184,150,74,0.15) 100%);
+  z-index: 1;
+}
+.hero-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  opacity: 0.85;
+  mix-blend-mode: luminosity;
+}
+.hero-photo-caption {
+  position: absolute; bottom: 2rem; right: 2rem; z-index: 3;
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+/* gold corner accent */
+.hero-right::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0;
+  width: 6rem; height: 6rem;
+  background: var(--gold);
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  z-index: 4; opacity: 0.6;
+}
+
+/* ─── SECTION SCAFFOLDING ───────────────────────────────────────────── */
+section { padding: 6rem 0; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+.section-eyebrow {
+  font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.section-eyebrow::before {
+  content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
+  line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.section-lead {
+  font-size: 1.05rem; font-weight: 300; color: var(--ink-mid);
+  max-width: 600px; line-height: 1.8; margin-bottom: 3.5rem;
+}
+.divider {
+  width: 3rem; height: 2px; background: var(--gold); margin-bottom: 1rem;
+}
+
+/* ─── ABOUT ─────────────────────────────────────────────────────────── */
+#about { background: var(--white); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+}
+.about-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem;
+}
+.tag {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.4rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px; color: var(--ink-mid);
+}
+.tag.gold { border-color: var(--gold); color: var(--gold); }
+.tag.sky  { border-color: var(--sky); color: var(--sky); background: rgba(26,58,92,0.05); }
+.about-body { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); font-weight: 300; }
+.about-body p { margin-bottom: 1.25rem; }
+.about-body strong { color: var(--ink); font-weight: 500; }
+.about-sidebar {}
+.about-card {
+  background: var(--paper); border: 1px solid var(--rule);
+  padding: 2rem; margin-bottom: 1.5rem; border-radius: 4px;
+}
+.about-card-label {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.75rem;
+}
+.about-card-title {
+  font-family: var(--ff-display); font-size: 1.2rem; font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.about-card-body {
+  font-size: 0.88rem; color: var(--ink-mid); line-height: 1.65; font-weight: 300;
+}
+.skill-list {
+  list-style: none; margin-top: 1rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem;
+}
+.skill-list li {
+  font-size: 0.82rem; color: var(--ink-mid);
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.skill-list li::before {
+  content: ''; width: 4px; height: 4px; background: var(--gold);
+  border-radius: 50%; flex-shrink: 0;
+}
+
+/* ─── PORTFOLIO ──────────────────────────────────────────────────────── */
+#portfolio { background: var(--paper); }
+.projects-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+.project-card {
+  background: var(--white); border: 1px solid var(--rule);
+  border-radius: 4px; overflow: hidden;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  display: flex; flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(14,14,14,0.08);
+}
+.project-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+.project-header {
+  padding: 2rem 2rem 0;
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.project-type-badge {
+  font-family: var(--ff-mono); font-size: 0.62rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 2px;
+}
+.badge-ai   { background: rgba(26,58,92,0.08); color: var(--sky); }
+.badge-saas { background: rgba(184,150,74,0.12); color: #8a6b25; }
+.badge-consulting { background: rgba(14,14,14,0.05); color: var(--ink-mid); }
+.project-icon {
+  width: 48px; height: 48px; border-radius: 8px;
+  background: var(--paper); border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.project-body { padding: 1.5rem 2rem; flex: 1; }
+.project-title {
+  font-family: var(--ff-display); font-size: 1.35rem;
+  font-weight: 700; line-height: 1.25; margin-bottom: 0.75rem;
+}
+.project-desc {
+  font-size: 0.9rem; color: var(--ink-mid); line-height: 1.75;
+  font-weight: 300; margin-bottom: 1.25rem;
+}
+.project-bullets {
+  list-style: none; margin-bottom: 1.5rem;
+}
+.project-bullets li {
+  font-size: 0.85rem; color: var(--ink-mid);
+  padding: 0.3rem 0; display: flex; align-items: flex-start; gap: 0.6rem;
+  border-bottom: 1px solid var(--rule); line-height: 1.5;
+}
+.project-bullets li:last-child { border-bottom: none; }
+.project-bullets li::before {
+  content: '→'; color: var(--gold); flex-shrink: 0; margin-top: 0.05rem;
+}
+.project-stack {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;
+}
+.stack-pill {
+  font-family: var(--ff-mono); font-size: 0.65rem; letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem; background: var(--paper);
+  border: 1px solid var(--rule); border-radius: 2px; color: var(--ink-soft);
+}
+.project-footer {
+  padding: 1.25rem 2rem; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.project-link {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--sky);
+  display: flex; align-items: center; gap: 0.4rem;
+  transition: gap 0.2s;
+}
+.project-link:hover { gap: 0.7rem; }
+.project-link::after { content: '→'; }
+/* Featured card layout */
+.project-card.featured .project-featured-visual {
+  width: 340px; flex-shrink: 0;
+  background: var(--sky);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.project-card.featured .project-featured-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, transparent, transparent 20px,
+    rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px
+  );
+}
+.featured-visual-inner {
+  font-family: var(--ff-display); font-size: 5rem; font-weight: 900;
+  color: rgba(255,255,255,0.12); text-align: center; line-height: 1;
+  user-select: none; z-index: 1; position: relative;
+}
+.featured-visual-inner span {
+  display: block; font-size: 1rem; font-weight: 400;
+  color: rgba(184,150,74,0.7); letter-spacing: 0.2em;
+  font-family: var(--ff-mono); text-transform: uppercase;
+  margin-top: 1rem;
+}
+.project-card.featured .project-main { flex: 1; }
+
+/* ─── EXPERIENCE ─────────────────────────────────────────────────────── */
+#experience { background: var(--sky); color: var(--paper); }
+#experience .section-eyebrow { color: var(--gold-lt); }
+#experience .section-eyebrow::before { background: var(--gold-lt); }
+#experience .section-title { color: var(--white); }
+#experience .section-lead { color: rgba(247,244,239,0.7); }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0;
+  width: 1px; background: rgba(247,244,239,0.15);
+}
+.timeline-item { position: relative; margin-bottom: 3rem; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -2rem; top: 0.5rem;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--sky);
+  box-shadow: 0 0 0 3px rgba(184,150,74,0.3);
+}
+.timeline-meta {
+  display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.timeline-company {
+  font-family: var(--ff-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white);
+}
+.timeline-period {
+  font-family: var(--ff-mono); font-size: 0.68rem;
+  letter-spacing: 0.12em; color: rgba(247,244,239,0.4);
+  text-transform: uppercase;
+}
+.timeline-role {
+  font-size: 0.85rem; font-weight: 400; color: var(--gold-lt);
+  margin-bottom: 1rem; letter-spacing: 0.02em;
+}
+.timeline-points {
+  list-style: none; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.timeline-points li {
+  font-size: 0.9rem; color: rgba(247,244,239,0.75);
+  display: flex; align-items: flex-start; gap: 0.75rem; line-height: 1.6;
+}
+.timeline-points li::before {
+  content: ''; width: 4px; height: 4px; background: var(--gold);
+  border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem;
+}
+.exp-highlight {
+  color: var(--white); font-weight: 500;
+}
+
+/* ─── CONSULTING ─────────────────────────────────────────────────────── */
+#consulting { background: var(--cream); }
+.consulting-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.consult-card {
+  background: var(--white); border: 1px solid var(--rule);
+  padding: 2rem; border-radius: 4px;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.consult-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(14,14,14,0.07);
+}
+.consult-number {
+  font-family: var(--ff-display); font-size: 3.5rem;
+  font-weight: 900; color: var(--paper); line-height: 1;
+  margin-bottom: 1.25rem;
+}
+.consult-icon {
+  font-size: 1.75rem; margin-bottom: 1.25rem; display: block;
+}
+.consult-title {
+  font-family: var(--ff-display); font-size: 1.15rem;
+  font-weight: 700; margin-bottom: 0.75rem; line-height: 1.25;
+}
+.consult-desc {
+  font-size: 0.88rem; color: var(--ink-mid); line-height: 1.7;
+  font-weight: 300;
+}
+.consult-outcomes {
+  margin-top: 1.25rem; padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+.consult-outcomes li {
+  font-size: 0.8rem; color: var(--ink-soft);
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.consult-outcomes li::before {
+  content: '✓'; color: var(--gold); font-weight: 600; font-size: 0.7rem;
+}
+
+/* ─── TESTIMONIAL / CREDIBILITY ─────────────────────────────────────── */
+#credibility { background: var(--white); }
+.cred-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+.metrics-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.metric-item {
+  padding: 1.75rem; background: var(--paper); border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold); border-radius: 0 4px 4px 0;
+}
+.metric-val {
+  font-family: var(--ff-display); font-size: 2.5rem; font-weight: 900;
+  color: var(--sky); line-height: 1; margin-bottom: 0.3rem;
+}
+.metric-label { font-size: 0.82rem; color: var(--ink-mid); font-weight: 400; }
+.metric-context { font-size: 0.75rem; color: var(--ink-soft); margin-top: 0.2rem; font-style: italic; }
+
+.stack-showcase { }
+.stack-showcase-title {
+  font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+}
+.stack-category { margin-bottom: 2rem; }
+.stack-cat-label {
+  font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-soft);
+  margin-bottom: 0.75rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.stack-items {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+}
+.stack-item {
+  font-size: 0.82rem; font-weight: 400;
+  padding: 0.45rem 0.9rem;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 2px; color: var(--ink-mid);
+  transition: all 0.2s;
+}
+.stack-item:hover { border-color: var(--gold); color: var(--ink); }
+.stack-item.highlight {
+  background: rgba(26,58,92,0.06); border-color: var(--sky-lt);
+  color: var(--sky);
+}
+
+/* ─── CTA / CONTACT ─────────────────────────────────────────────────── */
+#contact {
+  background: var(--ink);
+  padding: 7rem 0;
+}
+#contact .container { text-align: center; }
+.contact-eyebrow {
+  font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
+}
+.contact-eyebrow::before, .contact-eyebrow::after {
+  content: ''; display: block; width: 2rem; height: 1px; background: var(--gold);
+}
+.contact-title {
+  font-family: var(--ff-display); font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 900; color: var(--white); line-height: 1.1;
+  margin-bottom: 1.5rem; letter-spacing: -0.02em;
+}
+.contact-title em { color: var(--gold-lt); font-style: italic; }
+.contact-desc {
+  font-size: 1.05rem; color: rgba(247,244,239,0.6);
+  font-weight: 300; max-width: 540px; margin: 0 auto 3rem;
+  line-height: 1.75;
+}
+.contact-options {
+  display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+.btn-gold {
+  padding: 0.9rem 2.25rem;
+  background: var(--gold); color: var(--ink);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 2px;
+  transition: all 0.25s var(--ease);
+}
+.btn-gold:hover { background: var(--gold-lt); }
+.btn-ghost {
+  padding: 0.9rem 2.25rem;
+  border: 1.5px solid rgba(247,244,239,0.3); color: rgba(247,244,239,0.7);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 2px;
+  transition: all 0.25s var(--ease);
+}
+.btn-ghost:hover { border-color: var(--paper); color: var(--paper); }
+.contact-links {
+  display: flex; justify-content: center; gap: 2rem;
+  font-family: var(--ff-mono); font-size: 0.72rem; letter-spacing: 0.12em;
+  color: rgba(247,244,239,0.35);
+}
+.contact-links a { transition: color 0.2s; }
+.contact-links a:hover { color: var(--gold); }
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────── */
+footer {
+  background: #080808; padding: 2rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  font-family: var(--ff-display); font-size: 0.95rem; font-weight: 700;
+  color: rgba(247,244,239,0.3);
+}
+.footer-copy {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.12em; color: rgba(247,244,239,0.2);
+}
+
+/* ─── ANIMATIONS ─────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.hero-left > * {
+  opacity: 0; animation: fadeUp 0.7s var(--ease) forwards;
+}
+.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-left > *:nth-child(5) { animation-delay: 0.5s; }
+.hero-left > *:nth-child(6) { animation-delay: 0.6s; }
+
+.hero-right {
+  opacity: 0; animation: fadeIn 1.2s var(--ease) 0.3s forwards;
+}
+
+/* scroll reveal */
+/* Reveal: visible by default, animated when JS enhances */
+.reveal {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+/* JS adds .js-loaded to <html> — only then do we hide/animate */
+.js-loaded .reveal {
+  opacity: 0; transform: translateY(28px);
+}
+.js-loaded .reveal.visible {
+  opacity: 1; transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 7rem 2.5rem 4rem; }
+  .hero-right { height: 50vw; min-height: 320px; position: relative; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.featured { flex-direction: column; }
+  .project-card.featured .project-featured-visual { width: 100%; height: 180px; }
+  .consulting-grid { grid-template-columns: 1fr; }
+  .cred-grid { grid-template-columns: 1fr; gap: 3rem; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .container { padding: 0 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ──────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">Q<span>.</span>Christopher</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#consulting">Consulting</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:quintin.a.christopher@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Business Transformation Expert · Senior TAM · AI Agent Builder</p>
+    <h1 class="hero-h1">
+      Quintin<br>
+      <em>Christopher</em>
+    </h1>
+    <p class="hero-role">
+      Senior Technical Account Manager &nbsp;·&nbsp; Technical Project Manager &nbsp;·&nbsp; AI Agent Builder
+    </p>
+    <p class="hero-desc">
+      7+ years managing enterprise SaaS accounts for Fortune 500 clients — including Stripe, AT&T, HubSpot, Flex, and Walmart at Zoom's Paid Professional Services tier. I combine deep customer-facing TAM experience with hands-on AI agent development in Gemini, Claude, and Zapier to accelerate time-to-value, drive adoption, and retain high-value enterprise accounts.
+    </p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">View Portfolio</a>
+      <a href="#consulting" class="btn-outline">Hire Me</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">$8.4M</div>
+        <div class="hero-stat-label">ARR Managed<br>at Zoom PS</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">7+</div>
+        <div class="hero-stat-label">Years Enterprise<br>SaaS TAM</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">98%</div>
+        <div class="hero-stat-label">On-Time Launch<br>Rate</div>
+      </div>
+    </div>
+    <!-- Platform badges -->
+    <div class="hero-platforms">
+      <p class="hero-platforms-label">Platforms & AI tools</p>
+      <div class="hero-platform-chips">
+        <span class="pchip">ClickUp</span>
+        <span class="pchip">Monday.com</span>
+        <span class="pchip">Notion AI</span>
+        <span class="pchip">HubSpot</span>
+        <span class="pchip">Asana</span>
+        <span class="pchip">Slack</span>
+        <span class="pchip">Zoom</span>
+        <span class="pchip pchip-ai">Gemini AI</span>
+        <span class="pchip pchip-ai">Claude</span>
+        <span class="pchip pchip-ai">Zapier Agents</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img
+        class="hero-photo"
+        src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+        alt="Quintin Christopher — Senior Technical Account Manager"
+      >
+    </div>
+    <p class="hero-photo-caption">Orlando, FL · Available for Remote & Travel</p>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">7+ years at the enterprise level —<br>now with AI superpowers</h2>
+        <div class="about-tags">
+          <span class="tag gold">Business Transformation Expert</span>
+          <span class="tag sky">Senior TAM · Sr. TPM</span>
+          <span class="tag sky">AI Agent Builder</span>
+          <span class="tag">Zoom Paid PS Tier</span>
+          <span class="tag">Fortune 500 Clients</span>
+        </div>
+        <div class="about-body">
+          <p>I'm a Senior Technical Account Manager with 7+ years serving enterprise accounts across high-growth SaaS. At Zoom's Paid Professional Services tier — a premium engagement model reserved for the company's highest-value clients — I managed an $8.4M ARR portfolio that included Stripe, AT&T, HubSpot, Flex, and Walmart. Before that, I led enterprise TAM engagements at Medallia (Comcast, ADP, Cox) and drove 98% on-time implementation launches at PlanSource across complex HCM integrations with Workday, Dayforce, and UKG.</p>
+          <p>What I bring beyond the account management fundamentals is a genuine, hands-on AI and automation capability. I build production AI agents in Gemini — with Claude for reasoning and Zapier Agents for multi-step workflow orchestration — and I've shipped two live applications that solve real enterprise TAM problems: an automated TTV orchestration platform and an AI-powered QBR engine. These aren't demos. They're deployed tools built using the same stack I recommend to clients.</p>
+          <p>My core strength is bridging the gap between executive stakeholders, engineering teams, and end users — translating complex technical realities into business outcomes, accelerating time-to-value, and driving the adoption and retention numbers that matter to revenue. That's true whether the platform is Zoom, ClickUp, Salesforce, or anything in between.</p>
+        </div>
+      </div>
+      <div class="about-sidebar reveal reveal-delay-2">
+        <div class="about-card">
+          <p class="about-card-label">Open To</p>
+          <p class="about-card-title">Senior TAM · Technical Project Manager</p>
+          <p class="about-card-body">Targeting senior TAM and TPM roles at high-growth SaaS companies. Experienced with enterprise, startup, and mid-market client segments across UCaaS, CX, HCM, and AI platforms.</p>
+        </div>
+        <div class="about-card">
+          <p class="about-card-label">Platforms I Build In</p>
+          <p class="about-card-title">Work OS & Collaboration Tools</p>
+          <ul class="skill-list">
+            <li>ClickUp</li>
+            <li>Monday.com</li>
+            <li>Notion AI</li>
+            <li>HubSpot</li>
+            <li>Asana</li>
+            <li>Slack</li>
+            <li>Zoom</li>
+            <li>Zapier</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <p class="about-card-label">Availability</p>
+          <p class="about-card-title">Orlando, FL · Remote & Travel</p>
+          <p class="about-card-body">Available for senior TAM roles, direct contract, and freelance projects via Fiverr and Upwork. Enterprise and small business clients welcome.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PORTFOLIO ─────────────────────────────────────────────────────── -->
+<section id="portfolio">
+  <div class="container">
+    <p class="section-eyebrow reveal">Portfolio</p>
+    <h2 class="section-title reveal">Case studies, live builds,<br>and applied AI development</h2>
+    <p class="section-lead reveal">
+      This portfolio is a mix of real enterprise case studies from client-facing work and personal projects built to continuously test, develop, and demonstrate TAM and AI implementation skills. The live applications are deployed production tools — actively iterated as new AI capabilities and TAM workflows evolve.
+    </p>
+
+    <div class="projects-grid">
+      <!-- FEATURED PROJECT 1 -->
+      <div class="project-card featured reveal">
+        <div class="project-featured-visual">
+          <div class="featured-visual-inner">
+            TTV<br>OS
+            <span>Live App</span>
+          </div>
+        </div>
+        <div class="project-main">
+          <div class="project-header">
+            <span class="project-type-badge badge-ai">Personal Project · AI Full Stack</span>
+            <div class="project-icon">🚀</div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Enterprise TTV Orchestrator</h3>
+            <p class="project-desc">A personal project built to develop and demonstrate AI implementation skills in an enterprise TAM context. This automated Implementation & Onboarding platform addresses the real problems I managed daily as a Paid PS TAM at Zoom — actively maintained and expanded as new AI capabilities emerge.</p>
+            <ul class="project-bullets">
+              <li>Secure Client Portal with Role-Based Access Control (RBAC) — external stakeholders manage blockers in zero-trust isolation from internal ARR data</li>
+              <li>Revenue Recognition & Forecasting engine that dynamically calculates deferred revenue based on implementation slippage</li>
+              <li>AI-driven SOW Parser that transforms unstructured sales handoff notes into phased Agile deployment plans</li>
+              <li>Integrated Document Vault centralizing SOWs, security questionnaires, and configs across Salesforce, Jira, and Zendesk</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">Vite</span>
+              <span class="stack-pill">Firebase</span>
+              <span class="stack-pill">Tailwind CSS v4</span>
+              <span class="stack-pill">Gemini API</span>
+              <span class="stack-pill">RBAC</span>
+              <span class="stack-pill">OCR</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://enterprise-ttv-coordinator.web.app" target="_blank" class="project-link">View Live App</a>
+            <span style="font-size:0.75rem;color:var(--ink-soft);font-family:var(--ff-mono);">enterprise-ttv-coordinator.web.app</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FEATURED PROJECT 2 -->
+      <div class="project-card featured reveal">
+        <div class="project-featured-visual" style="background: #1a3a1a;">
+          <div class="featured-visual-inner">
+            SUP<br>OS
+            <span>Live App</span>
+          </div>
+        </div>
+        <div class="project-main">
+          <div class="project-header">
+            <span class="project-type-badge badge-ai">Personal Project · AI Middleware</span>
+            <div class="project-icon">🤖</div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Enterprise Support OS</h3>
+            <p class="project-desc">A personal project built to explore AI-powered support operations and demonstrate enterprise middleware architecture. Designed around the real support triage and health scoring challenges I encountered in TAM roles — continuously updated as new AI tooling and TAM use cases develop.</p>
+            <ul class="project-bullets">
+              <li>Automated QBR Engine that ingests fragmented data from Salesforce, Datadog, and Zendesk to generate executive-ready strategic summaries</li>
+              <li>Dynamic commercial routing logic that cross-references technical severity with CRM telemetry — auto-escalates bugs to "Critical" when contract is within 45 days of renewal</li>
+              <li>RAG pipeline for context-aware support intelligence and sentiment citation from historical data</li>
+            </ul>
+            <div class="project-stack">
+              <span class="stack-pill">React</span>
+              <span class="stack-pill">Gemini API</span>
+              <span class="stack-pill">RAG</span>
+              <span class="stack-pill">Firebase</span>
+              <span class="stack-pill">Tailwind CSS</span>
+              <span class="stack-pill">Salesforce API</span>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a href="https://support-os.web.app" target="_blank" class="project-link">View Live App</a>
+            <span style="font-size:0.75rem;color:var(--ink-soft);font-family:var(--ff-mono);">support-os.web.app</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO PIECE 3 — KB Case Study -->
+      <div class="project-card reveal">
+        <div class="project-header">
+          <span class="project-type-badge badge-saas">Enterprise Case Study</span>
+          <div class="project-icon">📚</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Zoom Knowledge Base — 20% Ticket Deflection</h3>
+          <p class="project-desc">Architected and built a self-service technical knowledge base at Zoom's Paid PS tier that deflected 20% of all Tier-1 support tickets — empowering enterprise clients to resolve issues independently.</p>
+          <ul class="project-bullets">
+            <li>Identified top recurring ticket categories from Zendesk data to prioritize highest-impact articles</li>
+            <li>Built structured troubleshooting playbooks for API integrations, Zoom Phone, and Contact Center</li>
+            <li>Reduced repeat escalations and freed TAM bandwidth for strategic account work</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-pill">Zendesk</span>
+            <span class="stack-pill">Knowledge Mgmt</span>
+            <span class="stack-pill">Technical Writing</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" style="cursor:default;">Zoom · Paid PS Tier</span>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO PIECE 4 — Zapier / ClickUp Automation -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-header">
+          <span class="project-type-badge badge-consulting">Skills Development · Automation</span>
+          <div class="project-icon">⚡</div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">ClickUp Onboarding Automation — Zapier + ClickUp</h3>
+          <p class="project-desc">Built a complete TAM onboarding workflow in ClickUp — from new client kickoff to renewal task — with a Zapier automation that triggers a welcome sequence the moment a new client workspace is created.</p>
+          <ul class="project-bullets">
+            <li>New client kickoff → milestone tracking → integration checklist → QBR template → renewal task, all in ClickUp</li>
+            <li>Zapier automation connects ClickUp, Gmail, and Slack to eliminate manual onboarding setup</li>
+            <li>Demonstrates direct product fluency in ClickUp's Work OS architecture</li>
+          </ul>
+          <div class="project-stack">
+            <span class="stack-pill">ClickUp</span>
+            <span class="stack-pill">Zapier Agents</span>
+            <span class="stack-pill">Gmail</span>
+            <span class="stack-pill">Slack</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span class="project-link" style="cursor:default;">Automation Portfolio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPERIENCE ────────────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="container">
+    <p class="section-eyebrow reveal">Career</p>
+    <h2 class="section-title reveal">7+ years of deliberate<br>progression in enterprise SaaS</h2>
+    <p class="section-lead reveal">Every role was a strategic step — from selling complex technical solutions to managing the most demanding tier of enterprise accounts at Zoom's Paid Professional Services level.</p>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-company">Zoom Communications, Inc.</span>
+          <span class="timeline-period">Oct 2022 — Mar 2025</span>
+        </div>
+        <p class="timeline-role">Senior Technical Account Manager · <strong style="color:var(--gold-lt)">Paid Professional Services</strong></p>
+        <div style="margin-bottom:1rem;padding:0.75rem 1rem;background:rgba(184,150,74,0.1);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;">
+          <p style="font-family:var(--ff-mono);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.4rem;">Key Enterprise Accounts</p>
+          <p style="font-size:0.88rem;color:rgba(247,244,239,0.8);line-height:1.6;">Stripe · AT&T · HubSpot · Flex · Walmart · Financial Services Vertical</p>
+        </div>
+        <ul class="timeline-points">
+          <li><span class="exp-highlight">Portfolio Management:</span> Served as the dedicated Senior TAM within Zoom's Paid Professional Services tier — a premium engagement model where clients pay a professional services fee for high-touch technical advisory. Managed an $8.4M ARR enterprise portfolio spanning fintech, telecom, SaaS, retail, and logistics verticals, maintaining high renewal rates through executive business reviews and complex integration support.</li>
+          <li><span class="exp-highlight">Product Roadmap Influence:</span> Acted as the Voice of the Customer to Product and Engineering leadership, successfully advocating for 3 critical feature enhancements that resolved long-standing blockers in the financial services vertical — directly improving retention and adoption metrics for strategic accounts.</li>
+          <li><span class="exp-highlight">AI & Automation:</span> Deployed Zoom AI Companion across all enterprise client calls, ensuring 100% action item capture. Built Zoom Workflows automation connecting core platforms to automate client task creation, reducing manual setup time for new engagements.</li>
+          <li><span class="exp-highlight">Escalation & Crisis Management:</span> Engineered a Bug Triage Protocol that reduced critical issue resolution time by 30%, streamlining communication between client stakeholders and internal R&D teams during high-severity incidents.</li>
+          <li><span class="exp-highlight">Scalability & Enablement:</span> Architected a self-service technical knowledge base and troubleshooting playbook that deflected 20% of Tier-1 support tickets — empowering enterprise clients including Stripe and Walmart to resolve configuration issues independently.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-company">Medallia</span>
+          <span class="timeline-period">Mar 2022 — Sept 2022</span>
+        </div>
+        <p class="timeline-role">Technical Account Manager <span style="font-size:0.78rem;opacity:0.6;">(Contract)</span></p>
+        <div style="margin-bottom:1rem;padding:0.75rem 1rem;background:rgba(184,150,74,0.1);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;">
+          <p style="font-family:var(--ff-mono);font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:0.4rem;">Key Enterprise Accounts</p>
+          <p style="font-size:0.88rem;color:rgba(247,244,239,0.8);line-height:1.6;">Comcast · ADP · Cox Communications</p>
+        </div>
+        <ul class="timeline-points">
+          <li><span class="exp-highlight">Adoption Acceleration:</span> Conducted deep-dive technical discovery workshops to uncover platform usage gaps, resulting in a 15% increase in adoption metrics within the first 90 days — across enterprise accounts including Comcast, ADP, and Cox.</li>
+          <li><span class="exp-highlight">Custom Solution Design:</span> Designed and deployed bespoke enterprise CX platform configurations for Fortune 500 clients, utilizing JavaScript and XML to map complex business logic to Medallia's platform capabilities.</li>
+          <li><span class="exp-highlight">Data Ecosystem Integration:</span> Orchestrated end-to-end integration of client data streams via API, troubleshooting cross-platform ETL data flow issues to ensure 100% data integrity and reporting accuracy across client environments.</li>
+          <li style="color:rgba(247,244,239,0.4);font-style:italic;">Role ended as part of Medallia's company-wide reduction in force, mid-2022.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-company">PlanSource</span>
+          <span class="timeline-period">Mar 2020 — Mar 2022</span>
+        </div>
+        <p class="timeline-role">Technical Account Manager / Implementation Lead</p>
+        <ul class="timeline-points">
+          <li><span class="exp-highlight">Enterprise Onboarding:</span> Managed end-to-end technical implementation for large-scale HCM clients, achieving a 98% on-time launch rate through meticulous milestone tracking and dependency management.</li>
+          <li><span class="exp-highlight">Complex System Integrations:</span> Served as Subject Matter Expert for high-stakes integrations with Workday, Dayforce, and UKG — designing data mapping schemas that automated the transfer of employee benefits data.</li>
+          <li><span class="exp-highlight">Workflow Automation:</span> Identified manual bottlenecks in client administrative processes and engineered automated workflows using API triggers, reducing client-side manual effort by an estimated 40 hours/month per account.</li>
+          <li><span class="exp-highlight">Sales Enablement:</span> Partnered with Sales Executives as a Technical Consultant for complex renewal discussions, providing technical validation that secured $1M+ in retained revenue.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-company">Lumen Technologies</span>
+          <span class="timeline-period">Apr 2018 — Mar 2020</span>
+        </div>
+        <p class="timeline-role">Senior Account Executive / Solutions Consultant</p>
+        <ul class="timeline-points">
+          <li><span class="exp-highlight">New Business Development:</span> Exceeded sales targets by 110% through a consultative approach, designing custom connectivity solutions that solved evolving infrastructure needs for mid-market clients.</li>
+          <li><span class="exp-highlight">Technical Sales Engineering:</span> Operated as a hybrid Account Executive and Pre-Sales Architect, mapping client technical requirements to Lumen's API-based service portfolio.</li>
+          <li><span class="exp-highlight">Strategic Pivot:</span> Transitioned deliberately into technical account management after recognizing that post-sales technical advisory was where I created the most measurable client value — leading to a purposeful career track in enterprise SaaS TAM roles.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(247,244,239,0.15);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;" class="reveal">
+      <div>
+        <p style="font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(247,244,239,0.4);margin-bottom:0.4rem;">Full Resume</p>
+        <p style="font-size:0.9rem;color:rgba(247,244,239,0.6);font-weight:300;">Complete work history, technical proficiencies, and portfolio projects</p>
+      </div>
+      <a href="https://linkedin.com/in/quintin-c-82114552" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.85rem 2rem;background:transparent;border:1.5px solid var(--gold);color:var(--gold-lt);font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;transition:all 0.25s;text-decoration:none;" onmouseover="this.style.background='rgba(184,150,74,0.15)'" onmouseout="this.style.background='transparent'">
+        View Full Resume →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONSULTING ─────────────────────────────────────────────────────── -->
+<section id="consulting">
+  <div class="container">
+    <p class="section-eyebrow reveal">Services</p>
+    <h2 class="section-title reveal">Available for contract,<br>fractional & freelance work</h2>
+    <p class="section-lead reveal">
+      I work with both enterprise organizations and small businesses — from Fortune 500 implementation recovery to a local business automating their first client workflow. Services are available directly through contract or via Fiverr, Upwork, and Toptal.
+    </p>
+
+    <!-- ENTERPRISE TIER -->
+    <div style="margin-bottom:1rem;" class="reveal">
+      <p style="font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem;">
+        <span style="display:block;width:1.5rem;height:1px;background:var(--gold);"></span>
+        Enterprise Engagements
+      </p>
+    </div>
+    <div class="consulting-grid" style="margin-bottom:3rem;">
+      <div class="consult-card reveal">
+        <span class="consult-icon">🔗</span>
+        <h3 class="consult-title">Enterprise SaaS Integration & Implementation Recovery</h3>
+        <p class="consult-desc">Complex SaaS implementations that are stalling, over budget, or misaligned between IT and the business. With a 98% on-time launch rate across HCM, UCaaS, and CX platforms, I step in where standard delivery falls short.</p>
+        <ul class="consult-outcomes">
+          <li>Implementation risk assessment & recovery planning</li>
+          <li>Multi-system integration architecture (Workday, Salesforce, Zendesk)</li>
+          <li>Cross-functional stakeholder alignment</li>
+          <li>Go-live execution, hypercare, and post-launch adoption</li>
+        </ul>
+      </div>
+      <div class="consult-card reveal reveal-delay-1">
+        <span class="consult-icon">📊</span>
+        <h3 class="consult-title">Fractional TAM & Customer Success Program Design</h3>
+        <p class="consult-desc">Startups and growth-stage SaaS companies that need enterprise-grade TAM infrastructure without a full-time hire. I design the function, build the playbooks, and cover strategic accounts until you're ready to staff up.</p>
+        <ul class="consult-outcomes">
+          <li>TAM function design & onboarding playbook creation</li>
+          <li>Executive Business Review (EBR/QBR) frameworks</li>
+          <li>Churn prevention models & health scoring setup</li>
+          <li>Fractional TAM coverage for high-value accounts</li>
+        </ul>
+      </div>
+      <div class="consult-card reveal reveal-delay-2">
+        <span class="consult-icon">🤖</span>
+        <h3 class="consult-title">Enterprise AI Workflow Automation for CS & Revenue Teams</h3>
+        <p class="consult-desc">Custom AI-powered tools that eliminate manual work in Customer Success operations at scale — from QBR prep automation to real-time health dashboards and commercial escalation routing.</p>
+        <ul class="consult-outcomes">
+          <li>Zapier Agents / Nano enterprise workflow design</li>
+          <li>AI-powered QBR preparation & reporting tools</li>
+          <li>Client health monitoring & churn signal automation</li>
+          <li>Custom React + Firebase + Gemini AI applications</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SMALL BUSINESS TIER -->
+    <div style="margin-bottom:1rem;" class="reveal">
+      <p style="font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.6rem;">
+        <span style="display:block;width:1.5rem;height:1px;background:var(--gold);"></span>
+        Small Business & Startup Services
+      </p>
+    </div>
+    <div class="consulting-grid" style="margin-bottom:3rem;">
+      <div class="consult-card reveal" style="border-top:2px solid var(--gold);">
+        <span class="consult-icon">⚡</span>
+        <h3 class="consult-title">AI Workflow Automation for Small Business</h3>
+        <p class="consult-desc">You don't need a developer or an IT team. I use no-code and low-code tools — Zapier, Notion AI, Make, and more — to automate the repetitive work that's eating your time: client follow-ups, scheduling, data entry, reporting, and intake flows.</p>
+        <ul class="consult-outcomes">
+          <li>Client intake & onboarding automation</li>
+          <li>Email follow-up & CRM workflow setup</li>
+          <li>Automated reporting & dashboard creation</li>
+          <li>Zapier / Make / Notion AI workflow builds</li>
+        </ul>
+      </div>
+      <div class="consult-card reveal reveal-delay-1" style="border-top:2px solid var(--gold);">
+        <span class="consult-icon">🛠️</span>
+        <h3 class="consult-title">SaaS Tool Setup & Integration</h3>
+        <p class="consult-desc">Bought a tool but don't know how to connect it to everything else? I set up, configure, and integrate the SaaS tools small businesses run on — CRMs, project management, scheduling, communication, and billing — so they actually work together.</p>
+        <ul class="consult-outcomes">
+          <li>CRM setup & data migration (HubSpot, Salesforce)</li>
+          <li>ClickUp / Asana / Notion workspace configuration</li>
+          <li>Connecting your tool stack via Zapier automations</li>
+          <li>Training your team on what was built</li>
+        </ul>
+      </div>
+      <div class="consult-card reveal reveal-delay-2" style="border-top:2px solid var(--gold);">
+        <span class="consult-icon">💬</span>
+        <h3 class="consult-title">AI Chatbot & Customer Support Automation</h3>
+        <p class="consult-desc">A simple AI chatbot or automated support workflow can handle FAQs, qualify leads, and route inquiries — 24/7, without hiring. I build these for small business websites, e-commerce stores, and service businesses that want to stop answering the same questions manually.</p>
+        <ul class="consult-outcomes">
+          <li>Website AI chatbot setup & training</li>
+          <li>FAQ automation & lead qualification flows</li>
+          <li>Support ticket routing & auto-response</li>
+          <li>Integration with your existing inbox or CRM</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FREELANCE PLATFORMS CALLOUT -->
+    <div class="reveal" style="background:var(--white);border:1px solid var(--rule);border-radius:4px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <p style="font-family:var(--ff-mono);font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">How to Hire</p>
+        <p style="font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:0.4rem;">Direct contract or through your preferred platform</p>
+        <p style="font-size:0.88rem;color:var(--ink-soft);line-height:1.65;">Enterprise engagements booked directly. Small business projects also available on Fiverr, Upwork, and Toptal — with full reviews, protected payments, and milestone-based delivery.</p>
+      </div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
+        <a href="mailto:quintin.a.christopher@gmail.com" style="padding:0.75rem 1.5rem;background:var(--ink);color:var(--paper);font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='var(--sky)'" onmouseout="this.style.background='var(--ink)'">Direct Inquiry</a>
+        <a href="https://www.fiverr.com" target="_blank" style="padding:0.75rem 1.5rem;border:1.5px solid var(--rule);color:var(--ink-mid);font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--ink)';this.style.color='var(--ink)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink-mid)'">Fiverr</a>
+        <a href="https://www.upwork.com" target="_blank" style="padding:0.75rem 1.5rem;border:1.5px solid var(--rule);color:var(--ink-mid);font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--ink)';this.style.color='var(--ink)'" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink-mid)'">Upwork</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CREDIBILITY ────────────────────────────────────────────────────── -->
+<section id="credibility">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="reveal">
+        <p class="section-eyebrow">By the Numbers</p>
+        <h2 class="section-title">Results that<br>speak plainly</h2>
+        <div class="metrics-list">
+          <div class="metric-item">
+            <div class="metric-val">$8.4M</div>
+            <div class="metric-label">ARR Portfolio Managed</div>
+            <div class="metric-context">Zoom Paid Professional Services tier</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">30%</div>
+            <div class="metric-label">Reduction in Critical Issue Resolution Time</div>
+            <div class="metric-context">Via engineered Bug Triage Protocol at Zoom</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">20%</div>
+            <div class="metric-label">Tier-1 Ticket Deflection</div>
+            <div class="metric-context">Self-service KB built at Zoom PS tier</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val">98%</div>
+            <div class="metric-label">On-Time Launch Rate</div>
+            <div class="metric-context">Enterprise HCM implementations at PlanSource</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <p class="stack-showcase-title">Full Technical Stack</p>
+        <div class="stack-showcase">
+          <div class="stack-category">
+            <p class="stack-cat-label">Work OS & Collaboration Platforms</p>
+            <div class="stack-items">
+              <span class="stack-item highlight">ClickUp</span>
+              <span class="stack-item highlight">Monday.com</span>
+              <span class="stack-item highlight">Notion AI</span>
+              <span class="stack-item highlight">HubSpot</span>
+              <span class="stack-item highlight">Asana</span>
+              <span class="stack-item highlight">Slack</span>
+              <span class="stack-item highlight">Zoom</span>
+              <span class="stack-item">Jira</span>
+              <span class="stack-item">Salesforce SFDC</span>
+              <span class="stack-item">Zendesk</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <p class="stack-cat-label">AI Agents & Automation</p>
+            <div class="stack-items">
+              <span class="stack-item highlight">Gemini AI (primary agent builder)</span>
+              <span class="stack-item highlight">Claude</span>
+              <span class="stack-item highlight">Zapier Agents / Nano</span>
+              <span class="stack-item highlight">RAG Pipelines</span>
+              <span class="stack-item">Fireflies.ai</span>
+              <span class="stack-item">Salesforce Einstein AI</span>
+              <span class="stack-item">Gong.io</span>
+              <span class="stack-item">Gainsight</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <p class="stack-cat-label">Development & Integration</p>
+            <div class="stack-items">
+              <span class="stack-item highlight">React + Firebase</span>
+              <span class="stack-item highlight">REST APIs & Webhooks</span>
+              <span class="stack-item">Python · JavaScript</span>
+              <span class="stack-item">Tailwind CSS v4</span>
+              <span class="stack-item">SAML / SSO</span>
+              <span class="stack-item">SQL</span>
+              <span class="stack-item">Workday · Dayforce · UKG</span>
+            </div>
+          </div>
+          <div class="stack-category">
+            <p class="stack-cat-label">TAM & CS Methodology</p>
+            <div class="stack-items">
+              <span class="stack-item">Executive Business Reviews</span>
+              <span class="stack-item">QBR Facilitation</span>
+              <span class="stack-item">Churn Prevention</span>
+              <span class="stack-item">Health Scoring</span>
+              <span class="stack-item">Agile / Scrum</span>
+              <span class="stack-item">RBAC Architecture</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <p class="contact-eyebrow">Let's Work Together</p>
+    <h2 class="contact-title">
+      Ready to build something<br>that <em>actually works</em>
+    </h2>
+    <p class="contact-desc">
+      Whether you need a ClickUp workspace built from scratch, an AI agent that automates your client workflows, or a senior TAM for an enterprise engagement — reach out directly or find me on your preferred freelance platform.
+    </p>
+    <div class="contact-options">
+      <a href="mailto:quintin.a.christopher@gmail.com" class="btn-gold">Send Email</a>
+      <a href="https://linkedin.com/in/quintin-c-82114552" target="_blank" class="btn-ghost">LinkedIn</a>
+      <a href="https://www.fiverr.com" target="_blank" class="btn-ghost">Fiverr</a>
+      <a href="https://www.upwork.com" target="_blank" class="btn-ghost">Upwork</a>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:quintin.a.christopher@gmail.com">quintin.a.christopher@gmail.com</a>
+      <a href="tel:4073606975">(407) 360-6975</a>
+      <a href="https://linkedin.com/in/quintin-c-82114552" target="_blank">LinkedIn</a>
+      <a href="https://enterprise-ttv-coordinator.web.app" target="_blank">Live App →</a>
+      <span>Orlando, FL 32703</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Quintin Christopher</div>
+  <p class="footer-copy">© 2026 · Senior TAM · AI Agent Builder · ClickUp-Ready · Orlando, FL</p>
+</footer>
+<!-- ─── JS ────────────────────────────────────────────────────────────── -->
+<script>
+(function() {
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(en
+
+<!-- JS -->
+<script>
+(function() {
+  // Add class so CSS can enable the hide-then-reveal animation
+  document.documentElement.classList.add('js-loaded');
+
+  var reveals = document.querySelectorAll('.reveal');
+
+  // Immediately mark anything already in viewport as visible (no delay)
+  function checkVisible(el) {
+    var r = el.getBoundingClientRect();
+    return r.top < window.innerHeight && r.bottom > 0;
+  }
+  reveals.forEach(function(el) {
+    if (checkVisible(el)) el.classList.add('visible');
+  });
+
+  // Observer for elements scrolled into view later
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(function(el) {
+      if (!el.classList.contains('visible')) io.observe(el);
+    });
+  } else {
+    // Fallback: just show everything if IntersectionObserver not supported
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', function() {
+    var n = document.querySelector('nav');
+    if (n) n.style.boxShadow = window.scrollY > 40 ? '0 4px 24px rgba(14,14,14,0.08)' : 'none';
+  });
+})();
+</script>
+</body>
+</html>
